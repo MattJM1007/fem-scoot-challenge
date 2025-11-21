@@ -17,5 +17,5 @@ menuBtn.addEventListener("click", toggleMenu);
 menuCta.addEventListener("click", toggleMenu);
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") toggleMenu();
+  if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") toggleMenu();
 });
