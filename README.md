@@ -12,9 +12,7 @@ This is a solution to the [Scoot website challenge on Frontend Mentor](https://w
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -57,4 +55,4 @@ I would like to keep learning to further develop a good organized css system tha
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/MattJM1007)
+- Frontend Mentor - [@MattJM1007](https://www.frontendmentor.io/profile/MattJM1007)
