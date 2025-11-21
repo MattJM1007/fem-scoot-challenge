@@ -7,7 +7,7 @@ const closeIcon = menuBtn.querySelector(".close-icon");
 const menuCta = header.querySelector(".nav-primary__list .button");
 
 function toggleMenu() {
-  const isExpanded = menuBtn.getAttribute("aria-expanded") === "true" ? true : false;
+  const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
   hamburgerIcon.classList.toggle("hidden");
   closeIcon.classList.toggle("hidden");
   menuBtn.setAttribute("aria-expanded", `${!isExpanded}`);
@@ -17,5 +17,7 @@ menuBtn.addEventListener("click", toggleMenu);
 menuCta.addEventListener("click", toggleMenu);
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") toggleMenu();
+  if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+    toggleMenu();
+  }
 });
