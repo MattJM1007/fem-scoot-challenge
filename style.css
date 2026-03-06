@@ -59,6 +59,21 @@
   box-sizing: border-box;
 }
 
+html {
+  /* stops mobile browsers from try to adjust text sizes for mobile */
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+
+  /* stop macOS from rendering fonts thicker */
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
 h1,
 .h1,
 h2,
@@ -168,6 +183,10 @@ p {
 
   @media (width > 45em) {
     --wrapper-padding: 4rem;
+  }
+
+  @media (width > 90em) {
+    overflow: hidden;
   }
 }
 
@@ -351,6 +370,7 @@ p {
   --_header-height: 77px;
 
   padding-block: 1rem;
+  position: relative;
 
   @media (width < 45em) {
     gap: 0;
@@ -358,40 +378,63 @@ p {
   }
 }
 
+.header-primary .nav-primary {
+  flex: 1;
+
+  @media (width < 45em) {
+    color: var(--clr-neutral-100);
+    background: var(--clr-neutral-500);
+    flex-direction: column;
+
+    padding-block: 4rem;
+    padding-inline: 2rem;
+    height: calc(100dvh - var(--_header-height));
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 30%;
+    z-index: 999;
+
+    display: none;
+    opacity: 0;
+    transform: translateX(-100%);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        display 300ms allow-discrete,
+        opacity 300ms,
+        transform 300ms;
+    }
+  }
+}
+
+.header-primary .nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--_header-height);
+  background-color: hsl(0 0 0 / 0.5);
+  z-index: 998;
+}
+
 body:has([aria-expanded="true"]) {
   overflow: hidden;
 }
 
 .header-primary:has([aria-expanded="true"]) .nav-primary {
-  display: block;
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
-.nav-primary {
-  flex: 1;
-
-  @media (width < 45em) {
-    display: none;
-    color: var(--clr-neutral-100);
-    padding-block: 4rem;
-    padding-inline: 2rem;
-    position: fixed;
-    background: var(--clr-neutral-500);
-    flex-direction: column;
-    top: var(--_header-height);
-    bottom: 0;
-    left: 0;
-    right: 30%;
-    z-index: 999;
-
-    &::before {
-      content: "";
-      background-color: hsl(0 0 0 / 0.5);
-      position: fixed;
-      inset: 0;
-      top: inherit;
-      left: 70%;
-    }
-  }
+.header-primary:has([aria-expanded="true"]) .nav-backdrop {
+  display: block;
 }
 
 .nav-primary__list {
@@ -575,7 +618,7 @@ body:has([aria-expanded="true"]) {
   border-radius: 50%;
 }
 
-/* ******** BLOCK - FAQ ACCORDIAN ******** */
+/* ******** BLOCK - FAQ ACCORDION ******** */
 .faq__wrapper {
   @media (width < 70em) {
     flex-direction: column;
@@ -594,7 +637,7 @@ body:has([aria-expanded="true"]) {
   --flow-spacer: 1.5rem;
 
   padding: 2rem 2.5rem;
-
+  cursor: pointer;
   & p {
     max-width: 100%;
   }
@@ -602,6 +645,24 @@ body:has([aria-expanded="true"]) {
   & ::marker {
     color: var(--clr-primary-400);
   }
+}
+
+.faq__content details::details-content {
+  --animation-time: 500ms;
+
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size var(--animation-time) ease-out,
+    content-visibility var(--animation-time) allow-discrete;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.faq__content details[open]::details-content {
+  block-size: auto;
 }
 
 /* ******** BLOCK - JOBS LIST ******** */

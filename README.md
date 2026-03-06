@@ -1,58 +1,75 @@
-# Frontend Mentor - Scoot website solution
+# Scoot Multi-Page Website
 
-This is a solution to the [Scoot website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/scoot-multipage-website-N76alNPRJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+Scoot is a fictional scooter sharing service available in big cities.
+![App Screenshot](./scoot-desktop.webp)
 
-## Table of contents
+[Live Demo](https://mattjm1007.github.io/fem-scoot-challenge/) · [View Code](https://github.com/MattJM1007/fem-scoot-challenge)
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-- [Author](#author)
+---
 
 ## Overview
 
-### The challenge
+A fully responsive 4-page marketing website built with vanilla HTML, CSS, and JavaScript. Demonstrates scalable CSS architecture and reusable layout patterns across multiple pages.
 
-Users should be able to:
+---
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements throughout the site
+## Features
 
-### Screenshot
+- Reusable decorative components with CSS classes
+- Animated mobile menu that slides in and out
+- Reusable layout classes to easily create multiple pages quickly
 
-![](./screenshot.png)
+---
 
-### Links
+## Technical Highlights
 
-- [Solution URL](https://github.com/MattJM1007/fem-scoot-challenge)
-- [Live Site URL](https://mattjm1007.github.io/fem-scoot-challenge/)
+**Reusable Decorative Patterns**
 
-## My process
+The site's decorative arrow elements repeat across multiple pages with varying positions. Rather than hardcoding styles per-page, I built a set of utility classes that handle placement and orientation — drop the class on any element and it works. This kept the CSS DRY and made adding new pages straightforward.
 
-### Built with
+**Modern CSS**
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+The mobile menu and accordion use `interpolate-size: allow-keywords` and `transition-behavior: allow-discrete` to animate to and from `height: auto` and `display: none` — values that traditionally can't be transitioned. This avoids JavaScript height calculations and keeps the animation logic entirely in CSS.
+
+---
+
+## Tech Stack
+
+- Semantic HTML
+- CSS (Grid, custom properties, mobile-first)
 - JavaScript
 
-### What I learned
+---
 
-I tried to organize my CSS following CUBE CSS principles and commenting off sections of my CSS for better readability
+## Getting Started
 
-To see how you can add code snippets, see below:
+```bash
+git clone https://github.com/MattJM1007/fem-scoot-challenge
+cd fem-scoot-challenge
+```
 
-### Continued development
+Open `index.html` in your browser or use a local dev server like Live Server.
 
-I would like to keep learning to further develop a good organized css system that is scalable.
+---
 
-## Author
+## Challenges & What I Learned
 
-- Frontend Mentor - [@MattJM1007](https://www.frontendmentor.io/profile/MattJM1007)
+**Implementing consistent styles and layouts**
+
+The first challenge I tackled in this design was how to implement similar design patterns easily throughout the site. I created CSS classes that could be dropped on to any element or container that would immediately apply the styles and be responsive. This helped keep my code DRY.
+
+**Animating mobile menu**
+
+I wanted the menu to slide in and out on mobile. I ran into issues getting this animation to work properly so I researched CSS animation APIs. Using `interpolate-size: allow-keywords` in combination with `@starting-style` allowed me to achieve a smooth animation.
+
+---
+
+## What I'd Improve
+
+**Map Decoration**
+
+I would like to move the cities on the locations page to be on the map to show where it is located in the world. This would make the page more engaging.
+
+**Component Architecture**
+
+I would extract the header and the footer into components that can be dropped in site wide. The individual 2 and 3 column sections could also be its own component where content can be dropped into. This would overall make the site more maintainable. Astro would be my framework of choice for this.
