@@ -1,6 +1,7 @@
 # Scoot Multi-Page Website
 
 Scoot is a fictional scooter sharing service available in big cities.
+
 ![App Screenshot](./scoot-desktop.webp)
 
 [Live Demo](https://mattjm1007.github.io/fem-scoot-challenge/) · [View Code](https://github.com/MattJM1007/fem-scoot-challenge)
