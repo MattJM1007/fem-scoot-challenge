@@ -4,7 +4,7 @@ Scoot is a fictional scooter sharing service available in big cities.
 
 ![App Screenshot](./scoot-desktop.webp)
 
-[Live Demo](https://mattjm1007.github.io/fem-scoot-challenge/) · [View Code](https://github.com/MattJM1007/fem-scoot-challenge)
+[Live Demo](https://mattjm1007.github.io/scoot-website/) · [View Code](https://github.com/MattJM1007/scoot-website)
 
 ---
 
@@ -45,7 +45,7 @@ The mobile menu and accordion use `interpolate-size: allow-keywords` and `transi
 ## Getting Started
 
 ```bash
-git clone https://github.com/MattJM1007/fem-scoot-challenge
+git clone https://github.com/MattJM1007/scoot-website
 cd fem-scoot-challenge
 ```
 
